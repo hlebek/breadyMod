@@ -1,0 +1,3 @@
+displayName = breadyMod
+author = hlebek
+version = 0.1
