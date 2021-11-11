@@ -25,7 +25,8 @@ namespace breadyMod.Items
 			item.rare = 2;
 			item.UseSound = SoundID.Item1;
 			item.autoReuse = true;
-            item.shoot = ProjectileID.WoodenArrowFriendly;
+            item.shoot = ProjectileID.WoodenArrowFriendly; //test
+            
 		}
 
 		public override void AddRecipes() 
