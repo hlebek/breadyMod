@@ -4,9 +4,9 @@ using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-//TODO: Mana za 5 strzał powinna być za 0 - gotowe
 //Pociski niech skręcają delikatnie do celu, a nie ostro - trudne do ogarnięcia, może nie na teraz
-//Pociski powinny respić się pod większym kątem - gotowe
+//W pliku z ExampleLastPrism może być kod potrzebny do gładkiego namierzania, ponieważ last prism
+//też się gładko namierza w stronę kursora
 
 namespace breadyMod.Items.MagicWeapons
 {

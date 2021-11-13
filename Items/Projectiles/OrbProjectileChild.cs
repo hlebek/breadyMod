@@ -44,10 +44,9 @@ namespace breadyMod.Items.Projectiles
             }
 
             // Seek and chase enemy
-            float projectileRange = 500f; //default: 200
+            float projectileRange = 200f; //default: 200
             bool lineOfSight = false;
             bool targetFound = false;
-            int inertia = 40;
             Vector2 targetCenter = new Vector2();
 
             for (int i = 0; i < Main.maxNPCs; i++)
@@ -69,13 +68,10 @@ namespace breadyMod.Items.Projectiles
 
             if(targetFound && Vector2.Distance(projectile.Center, targetCenter) > 20)
             {
-                //(projectile.velocity * (inertia - 1) + direction) / inertia;
                 Vector2 direction = targetCenter - projectile.position;
-                //Vector2 smoothDirection = projectile.velocity + new Vector2(projectile.rotation);
                 direction.Normalize();
                 direction *= 8f; // Speed of projectile after target has beed found. Just change the float value to change the speed. Default: 8
                 projectile.velocity = direction;
-                //projectile.velocity = smoothDirection;
             }
         }
 

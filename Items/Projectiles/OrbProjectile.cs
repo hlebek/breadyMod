@@ -52,7 +52,7 @@ namespace breadyMod.Items.Projectiles
 
         public override bool OnTileCollide(Vector2 oldVelocity)
         {
-            // Code for how many enemies/tiles projectile can hit
+            // If statement for how many enemies/tiles projectile can hit
             if (projectile.penetrate == 0)
                 projectile.Kill();
             projectile.penetrate--;
@@ -100,13 +100,14 @@ namespace breadyMod.Items.Projectiles
             projectile.Damage();
             projectile.scale = 0.01f;
 
-            //Resize the hitbox to its original size
+            // Resize the hitbox to its original size
             projectile.position = projectile.Center;
             projectile.Size = oldSize;
             projectile.Center = projectile.position;
             
             Main.PlaySound(SoundID.Item10, projectile.position);
 
+            // Spawn 1-3 child projectiles
             for (int i = 0; i < Main.rand.Next(1, 4); i++)
             {
                 Projectile.NewProjectile(projectile.position, (oldVelocity + Main.rand.NextVector2Unit(projectile.rotation - 2, 2))*8f, ModContent.ProjectileType<Projectiles.OrbProjectileChild>(), 14, Main.myPlayer, 0, 0, 0);
