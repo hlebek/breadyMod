@@ -17,7 +17,7 @@ namespace breadyMod.Items
 			item.melee = true;
 			item.width = 40;
 			item.height = 40;
-			item.useTime = 20;
+			item.useTime = 15;
 			item.useAnimation = 20;
 			item.useStyle = 1;
 			item.knockBack = 100;

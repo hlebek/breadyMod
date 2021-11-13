@@ -1,1 +1,4 @@
-breadyMod is mod for Mages, not bread.
+breadyMod is mod for weapons, not bread.
+It adds new weapons (mostly for mages) with unique behaviour.
+
+Sidenote: It's my first mod for Terraria so in a way it's also my "TutoMod".
