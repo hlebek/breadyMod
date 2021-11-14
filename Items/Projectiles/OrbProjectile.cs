@@ -7,7 +7,7 @@ using Terraria.ModLoader;
 
 namespace breadyMod.Items.Projectiles
 {
-    class OrbProjectile : ModProjectile
+    class OrbProjectile : ModProjectile // TODO: Chyba shardy się nie odwracają, gdy pocisk zniszczy się na bloku
     {
         Vector2 oldVelocity;
 
