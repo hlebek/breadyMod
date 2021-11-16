@@ -3,10 +3,14 @@ using System;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
+using Terraria.Localization;
 
 //Pociski niech skręcają delikatnie do celu, a nie ostro - trudne do ogarnięcia, może nie na teraz
 //W pliku z ExampleLastPrism może być kod potrzebny do gładkiego namierzania, ponieważ last prism
 //też się gładko namierza w stronę kursora
+//
+//Zmienić recepturę
+//Różdżka jest trzymana krzywo (chyba)
 
 namespace breadyMod.Items.MagicWeapons
 {
@@ -16,8 +20,12 @@ namespace breadyMod.Items.MagicWeapons
 
         public override void SetStaticDefaults()
         {
-            Tooltip.SetDefault("Shoots and Orb that upon impact shatters into small pieces that seek & penetrate enemies." +
+            Tooltip.SetDefault("Shoots and Orb that upon 3rd impact shatters into small pieces that seek & penetrate enemies." +
                                 "\nEvery fifth shot costs 0 mana.");
+
+            DisplayName.AddTranslation(GameCulture.Polish, "Kostur Sferyczny");
+            Tooltip.AddTranslation(GameCulture.Polish, "Strzela sferą, która po trzecim uderzeniu rozpada się na małe kawałki, które namierzają i penetrują przeciwników." +
+                                                        "\nKażdy piąty strzał kosztuje 0 many.");
         }
 
         public override void SetDefaults()
@@ -60,7 +68,8 @@ namespace breadyMod.Items.MagicWeapons
         public override void AddRecipes()
         {
             ModRecipe recipe = new ModRecipe(mod);
-            recipe.AddIngredient(ModContent.ItemType<BreadSword>(), 1);
+            recipe.AddIngredient(ModContent.ItemType<Items.InvItems.MagicCopperOre>(), 10);
+            recipe.AddIngredient(ItemID.WandofSparking, 1);
             recipe.AddTile(TileID.WorkBenches);
             recipe.SetResult(this);
             recipe.AddRecipe();
