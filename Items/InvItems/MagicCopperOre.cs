@@ -1,5 +1,4 @@
-﻿using System;
-using Terraria.ID;
+﻿using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.Localization;
 
@@ -33,15 +32,15 @@ namespace breadyMod.Items.InvItems
         {
             ModRecipe recipe = new ModRecipe(mod);
             recipe.AddIngredient(ItemID.CopperOre, 6);
-            recipe.AddIngredient(ItemID.FallenStar, 1);
+            recipe.AddIngredient(ModContent.ItemType<Items.InvItems.StarPowder>(), 1);
             recipe.AddTile(TileID.WorkBenches);
-            recipe.SetResult(this);
+            recipe.SetResult(this, 6);
             recipe.AddRecipe();
             recipe = new ModRecipe(mod);
             recipe.AddIngredient(ItemID.TinOre, 6);
-            recipe.AddIngredient(ItemID.FallenStar, 1);
+            recipe.AddIngredient(ModContent.ItemType<Items.InvItems.StarPowder>(), 1);
             recipe.AddTile(TileID.WorkBenches);
-            recipe.SetResult(this);
+            recipe.SetResult(this, 6);
             recipe.AddRecipe();
         }
     }
