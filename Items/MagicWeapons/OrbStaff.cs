@@ -9,8 +9,9 @@ using Terraria.Localization;
 //W pliku z ExampleLastPrism może być kod potrzebny do gładkiego namierzania, ponieważ last prism
 //też się gładko namierza w stronę kursora
 //
+//Namierzanie można też zrobić tak, że zamiast zmieniać wektor prędkości, aby wskazywał od razu na przeciwnika
+//to niech wektor prędkości pozostanie taki jaki jest, tylko niech projectile się obraca w stronę przeciwnika
 //Zmienić recepturę
-//Różdżka jest trzymana krzywo (chyba)
 
 namespace breadyMod.Items.MagicWeapons
 {
@@ -20,6 +21,7 @@ namespace breadyMod.Items.MagicWeapons
 
         public override void SetStaticDefaults()
         {
+            Item.staff[item.type] = true;
             Tooltip.SetDefault("Shoots and Orb that upon 3rd impact shatters into small pieces that seek & penetrate enemies." +
                                 "\nEvery fifth shot costs 0 mana.");
 
@@ -35,8 +37,8 @@ namespace breadyMod.Items.MagicWeapons
             item.mana = 5;
             item.width = 40;
             item.height = 40;
-            item.useTime = 35;
-            item.useAnimation = 15;
+            item.useTime = 30;
+            item.useAnimation = 30;
             item.useStyle = ItemUseStyleID.HoldingOut;
             item.noMelee = true;
             item.knockBack = 4f;
@@ -68,7 +70,7 @@ namespace breadyMod.Items.MagicWeapons
         public override void AddRecipes()
         {
             ModRecipe recipe = new ModRecipe(mod);
-            recipe.AddIngredient(ModContent.ItemType<Items.InvItems.MagicCopperOre>(), 10);
+            recipe.AddIngredient(ModContent.ItemType<Items.InvItems.MagicCopperBar>(), 10);
             recipe.AddIngredient(ItemID.WandofSparking, 1);
             recipe.AddTile(TileID.WorkBenches);
             recipe.SetResult(this);

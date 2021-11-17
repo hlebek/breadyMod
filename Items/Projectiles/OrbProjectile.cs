@@ -32,7 +32,7 @@ namespace breadyMod.Items.Projectiles
         {
             oldVelocity = projectile.velocity;
 
-            // This part makes the projectile do a shime sound every 10 ticks as long as it is moving.
+            // This part makes the projectile do a shime sound every 20 ticks as long as it is moving.
             if (projectile.soundDelay == 0 && Math.Abs(projectile.velocity.X) + Math.Abs(projectile.velocity.Y) > 2f)
             {
                 projectile.soundDelay = 20;
