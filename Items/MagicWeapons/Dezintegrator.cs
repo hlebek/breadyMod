@@ -38,7 +38,7 @@ namespace breadyMod.Items.MagicWeapons
             item.UseSound = SoundID.Item12;
             item.autoReuse = false;
             item.shoot = ModContent.ProjectileType<Projectiles.DezintegratorProjectile>();
-            item.shootSpeed = 4f;
+            item.shootSpeed = 16f;
         }
 
         public override void AddRecipes()
