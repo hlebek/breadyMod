@@ -28,17 +28,17 @@ namespace breadyMod.Items.MagicWeapons
             item.mana = 0;
             item.width = 40;
             item.height = 40;
-            item.useTime = 70;
-            item.useAnimation = 70;
+            item.useTime = 4;
+            item.useAnimation = 4;
             item.useStyle = ItemUseStyleID.HoldingOut;
             item.noMelee = true;
             item.knockBack = 4f;
             item.value = Item.sellPrice(0, 10, 0, 0);
             item.rare = ItemRarityID.Red;
             item.UseSound = SoundID.Item12;
-            item.autoReuse = false;
-            item.shoot = ModContent.ProjectileType<Projectiles.DezintegratorProjectile>();
-            item.shootSpeed = 16f;
+            item.autoReuse = true;
+            item.shoot = ModContent.ProjectileType<Items.Projectiles.DezintegratorProjectile>();
+            item.shootSpeed = 10f;
         }
 
         public override void AddRecipes()
