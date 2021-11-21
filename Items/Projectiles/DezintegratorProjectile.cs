@@ -21,7 +21,9 @@ namespace breadyMod.Items.Projectiles
     {
         private Vector2 laserEndPoint;
         private Vector2 laserCurrPoint;
+        private Vector2 predictedPosition;
         private float laserDrawStep = 500f;
+        private bool foundCollisionPoint = false;
 
         public override void SetDefaults()
         {
@@ -37,7 +39,7 @@ namespace breadyMod.Items.Projectiles
             projectile.timeLeft = 90;
             projectile.ignoreWater = true;
             //projectile.tileCollide = false;
-            projectile.extraUpdates = 10;
+            projectile.extraUpdates = 1;
         }
 
         public override bool PreDraw(SpriteBatch spriteBatch, Color lightColor)
@@ -75,18 +77,73 @@ namespace breadyMod.Items.Projectiles
             #endregion
 
             #region Draw laser head
-            spriteBatch.Draw(texture, start + (laserDrawStep + step) * toEndPointVector - Main.screenPosition,
+            spriteBatch.Draw(texture, predictedPosition + tailOffset - Main.screenPosition,
             new Rectangle(0, 32, 30, 30), Color.White, r, new Vector2(28 / 2, 26 / 2), scale, 0, 0);
             #endregion
+
+
+            //#region Draw laser tail
+            //spriteBatch.Draw(texture, start + tailOffset - Main.screenPosition,
+            //new Rectangle(0, 63, 30, 30), Color.White, r + (float)Math.PI,
+            //new Vector2(28 / 2, 26 / 2), scale, 0, 0);
+            //#endregion
+
+            //#region Draw laser head
+            //spriteBatch.Draw(texture, start + (laserDrawStep + step) * toEndPointVector - Main.screenPosition,
+            //new Rectangle(0, 32, 30, 30), Color.White, r, new Vector2(28 / 2, 26 / 2), scale, 0, 0);
+            //#endregion
         }
 
         public override void AI()
         {
             laserCurrPoint = projectile.position;
+
+            //TUTAJ CHYBA JEDNA PĘTLA STARCZY, BO TAK ITERUJEMY SIĘ W DZIWNY SPOSÓB PO MIEJSCACH, KTÓRE
+            //NIE NALEŻĄ DO ŚCIEŻKI NASZEGO POCISKU
+            // We iterate through each point our projectile will be in. We start with i&j being equal to projectile
+            // coordinates. Then in our for loop(s) we check if our i&j arent bigger then last position they ever get
+            // which is equal to projectile starting position + 90 frames of projectile's life multiplied by projectile
+            // velocity. We only need to do it once in projectile's life time
+
+            if (!Main.tileSolid[Main.tile[(int)((projectile.Center.X / 16f)+(projectile.velocity.X/16f)*90), (int)((projectile.Center.Y / 16f) + (projectile.velocity.Y/16f) * 90)].type])
+            {
+                //Projectile.NewProjectile(projectile.position, (projectile.velocity + Main.rand.NextVector2Unit(projectile.rotation - 2, 2)) * 8f, ModContent.ProjectileType<Projectiles.OrbProjectileChild>(), 14, Main.myPlayer, 0, 0, 0);
+            }
+
+            float i = projectile.Center.X / 16f;
+            float j = projectile.Center.Y / 16f;
+            int helper = 0;
+            while (!((Main.tileSolid[Main.tile[(int)i, (int)j].type] && Main.tile[(int)i, (int)j].active()) || foundCollisionPoint) && helper < 90)
+            {
+                i += projectile.velocity.X/16f;
+                j += projectile.velocity.Y/16f;
+                predictedPosition.X = i * 16f;
+                predictedPosition.Y = j * 16f;
+                helper++;
+                Projectile.NewProjectile(predictedPosition, projectile.velocity*0, ModContent.ProjectileType<Projectiles.OrbProjectileChild>(), 14, Main.myPlayer, 0, 0, 0);
+            }
+            if (Main.tileSolid[Main.tile[(int)i, (int)j].type])
+                foundCollisionPoint = true;
+
+            //Projectile.NewProjectile(predictedPosition, (projectile.velocity + Main.rand.NextVector2Unit(projectile.rotation - 2, 2)) * 8f, ModContent.ProjectileType<Projectiles.OrbProjectileChild>(), 14, Main.myPlayer, 0, 0, 0);
+
+            //for (float i = projectile.position.X; i < projectile.position.X + (90 * projectile.velocity.X); i += projectile.velocity.X)    
+            //{
+            //    Vector2 predictedPosition = projectile.position;
+            //    for (float j = projectile.position.Y; j < projectile.position.Y + (90 * projectile.velocity.Y); j += projectile.velocity.Y)
+            //    {
+            //        if (Main.tileSolid[Main.tile[(int)i, (int)j].type])
+
+            //    }
+            //}
+
             Vector2 step = Main.player[projectile.owner].Center - Main.MouseWorld;
             step.Normalize();
             step *= -1;
             laserEndPoint = Main.player[projectile.owner].Center + step * laserDrawStep;
+
+            //laserEndPoint.X = i;
+            //laserEndPoint.Y = j;
 
 
         }
