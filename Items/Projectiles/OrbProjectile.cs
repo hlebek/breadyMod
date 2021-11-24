@@ -77,7 +77,7 @@ namespace breadyMod.Items.Projectiles
             // Makes the projectile hit all enemies as it circunvents the penetrate limit.
             projectile.maxPenetrate = -1;
             projectile.penetrate = -1;
-            int explosionArea = 80;
+            int explosionArea = 100;
             Vector2 oldSize = projectile.Size;
 
             // Resize the projectile hitbox to be bigger.

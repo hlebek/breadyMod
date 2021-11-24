@@ -28,8 +28,8 @@ namespace breadyMod.Items.MagicWeapons
             item.mana = 0;
             item.width = 40;
             item.height = 40;
-            item.useTime = 4;
-            item.useAnimation = 4;
+            item.useTime = 26;
+            item.useAnimation = 26;
             item.useStyle = ItemUseStyleID.HoldingOut;
             item.noMelee = true;
             item.knockBack = 4f;
@@ -38,7 +38,7 @@ namespace breadyMod.Items.MagicWeapons
             item.UseSound = SoundID.Item12;
             item.autoReuse = true;
             item.shoot = ModContent.ProjectileType<Items.Projectiles.DezintegratorProjectile>();
-            item.shootSpeed = 10f;
+            item.shootSpeed = 20f;
         }
 
         public override void AddRecipes()
