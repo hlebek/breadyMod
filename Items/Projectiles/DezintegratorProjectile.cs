@@ -10,7 +10,7 @@ using Microsoft.Xna.Framework.Graphics;
 //ma szerokość, także wyznaczałbym 2 punkty końcowe dla obu krawędzi najlepiej). Po dodaniu wyliczenia punkta
 //końcowego lasera będzie trzeba zmienić rysowanie spriteBatchy - cały na raz ma się rysować, a nie dorysowywać
 //w raz z pokonaną odległością projectile'a (dodanie punkta końcowego rozwiąże ten problem). Końcówka ma się
-// rysować (a jakże by inaczej) na końcu.
+//rysować (a jakże by inaczej) na końcu.
 //Możliwe, że spriteBatche będą o wiele za szybko znikać gdy już broń będzie skończona. Aby uniknąć efektów
 //stroboskopowych czy wiązki lasera pojawiającej się na 2 klatki, można dodać niewidzialnego projectile'a, który
 //będzie miał podpiętego pod siebie spriteBatcha i będzie żył np. przez 3 sekundy, a następnie umierał.

@@ -24,6 +24,7 @@ namespace breadyMod.Items.Projectiles
             projectile.penetrate = 3;
             projectile.timeLeft = 60;
             projectile.ignoreWater = true;
+            projectile.alpha = 120;
         }
 
         public override Color? GetAlpha(Color lightColor) => new Color(126, 126, 255, 0);
@@ -113,7 +114,6 @@ namespace breadyMod.Items.Projectiles
             {
                 Projectile.NewProjectile(projectile.position, (oldVelocity + Main.rand.NextVector2Unit(projectile.rotation - 2, 2))*8f, ModContent.ProjectileType<Projectiles.OrbProjectileChild>(), 14, Main.myPlayer, 0, 0, 0);
             }
-
         }
     }
 }
