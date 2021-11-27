@@ -39,6 +39,7 @@ namespace breadyMod.Items.MagicWeapons
             item.autoReuse = true;
             item.shoot = ModContent.ProjectileType<Items.Projectiles.DezintegratorProjectile>();
             item.shootSpeed = 20f;
+            item.useAmmo = ModContent.ItemType<Items.InvItems.Ammo.CompressedManaAmmo>();
         }
 
         public override void AddRecipes()
