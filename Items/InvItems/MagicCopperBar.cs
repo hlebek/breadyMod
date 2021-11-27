@@ -13,7 +13,7 @@ namespace breadyMod.Items.InvItems
 
         public override void SetStaticDefaults()
         {
-            Tooltip.SetDefault("This is bar of magic copper!");
+            Tooltip.SetDefault("This is a bar of magic copper!");
 
             DisplayName.AddTranslation(GameCulture.Polish, "Sztabka Magicznej Miedzi");
             Tooltip.AddTranslation(GameCulture.Polish, "Toż to sztabka magicznej miedzi!");
