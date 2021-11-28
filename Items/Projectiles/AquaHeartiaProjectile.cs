@@ -5,6 +5,8 @@ using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.Localization;
 
+// TODO: Projectile is not affecte to manasickness due to fact it's damage is changing inside the code
+// CHANGE THAT ^^^
 
 namespace breadyMod.Items.Projectiles
 {

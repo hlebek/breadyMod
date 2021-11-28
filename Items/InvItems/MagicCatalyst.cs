@@ -8,10 +8,12 @@ namespace breadyMod.Items.InvItems
     {
         public override void SetStaticDefaults()
         {
-            Tooltip.SetDefault("No worries. Noone's gonna cut it from your car.");
+            Tooltip.SetDefault("Infuses blood with mana to get mana essence." +
+                                "\nNo worries. Noone's gonna cut it from your car.");
 
             DisplayName.AddTranslation(GameCulture.Polish, "Magiczny Katalizator");
-            Tooltip.AddTranslation(GameCulture.Polish, "Bez obaw. Nikt Ci go nie wytnie z auta.");
+            Tooltip.AddTranslation(GameCulture.Polish, "Natchniewa krew maną, aby stworzyć esencję many" +
+                                                        "\nBez obaw. Nikt Ci go nie wytnie z auta.");
         }
 
         public override void SetDefaults()
